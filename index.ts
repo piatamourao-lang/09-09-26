@@ -1,37 +1,57 @@
 import readLine from "readline-sync";
-import { Funcionario } from "./src/models/Funcionários.js";
+import { Sorvete } from "./sorvete.js";
+import { Camisa } from "./camiseta.js";
 
-console.log("=== CADASTRO DE FUNCIONÁRIO ===");
-const novoFuncionario = new Funcionario(
-    "111.222.333-44",
-    "Carlos Silva",
-    "11999999999",
-    "carlos@email.com",
-    "1990-05-15",
-    "REG-1234",
-    "CTPS-9876",
-    "PIS-5555"
+console.log("======================================");
+console.log("          CADASTRO DE PRODUTOS        ");
+console.log("======================================");
+
+// CADASTRO DO SORVETE
+const sorvete = new Sorvete(
+    1,
+    "Sorvete de Chocolate",
+    12.50,
+    -18
 );
 
-console.log(`\nFuncionário cadastrado: ${novoFuncionario.getnome}`);
-console.log(`Registro: ${novoFuncionario.getRegistro}`);
+console.log("\n===== SORVETE =====");
+console.log(`ID: ${sorvete.getId}`);
+console.log(`Nome: ${sorvete.getNome}`);
+console.log(`Preço: R$ ${sorvete.getPreco}`);
+console.log(`Temperatura adequada: ${sorvete.getTempAdequada}°C`);
 
-// Interação via teclado utilizando herança
-novoFuncionario.setNome = readLine.question("\nDigite o nome atualizado do funcionario: ");
-novoFuncionario.setTelefone = readLine.question("Digite o novo telefone: ");
 
-// Exibindo TODOS os dados do funcionário no final
-console.log("\n================================================");
-console.log("      DADOS COMPLETOS DO FUNCIONÁRIO            ");
-console.log("================================================");
-// Dados herdados da classe PessoaFisica
-console.log(`CPF:                  ${novoFuncionario.getCPf}`);
-console.log(`Nome:                 ${novoFuncionario.getnome}`);
-console.log(`Telefone:             ${novoFuncionario.gettelefone}`);
-console.log(`E-mail:               ${novoFuncionario.getemail}`);
-console.log(`Data de Nascimento:   ${novoFuncionario.getDataNascimento}`);
-// Dados específicos da classe Funcionario
-console.log(`Registro:             ${novoFuncionario.getRegistro}`);
-console.log(`Carteira de Trabalho: ${novoFuncionario.getCarteiraTrabalho}`);
-console.log(`PIS:                  ${novoFuncionario.getPis}`);
-console.log("================================================\n");
+// CADASTRO DA CAMISA
+const camisa = new Camisa(
+    2,
+    "Camisa Polo",
+    89.90,
+    "Azul",
+    "Algodão",
+    "M"
+);
+
+console.log("\n===== CAMISA =====");
+console.log(`ID: ${camisa.getId}`);
+console.log(`Nome: ${camisa.getNome}`);
+console.log(`Preço: R$ ${camisa.getPreco}`);
+console.log(`Cor: ${camisa.getCor}`);
+console.log(`Tecido: ${camisa.getTecido}`);
+console.log(`Tamanho: ${camisa.getTamanho}`);
+
+
+// ALTERAÇÃO DE DADOS
+console.log("\n======================================");
+console.log("       ALTERAÇÃO DA CAMISA            ");
+console.log("======================================");
+
+camisa.setCor = readLine.question("Digite uma nova cor: ");
+camisa.setTamanho = readLine.question("Digite um novo tamanho: ");
+
+console.log("\n===== CAMISA ATUALIZADA =====");
+console.log(`ID: ${camisa.getId}`);
+console.log(`Nome: ${camisa.getNome}`);
+console.log(`Preço: R$ ${camisa.getPreco}`);
+console.log(`Cor: ${camisa.getCor}`);
+console.log(`Tecido: ${camisa.getTecido}`);
+console.log(`Tamanho: ${camisa.getTamanho}`);
